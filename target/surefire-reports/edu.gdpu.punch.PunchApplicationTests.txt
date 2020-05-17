@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: edu.gdpu.punch.PunchApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.516 s - in edu.gdpu.punch.PunchApplicationTests

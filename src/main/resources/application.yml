@@ -1,0 +1,53 @@
+spring:
+  messages:
+    basename: i18n.login
+    #禁止模板引擎缓存
+  thymeleaf:
+    cache: false
+  #热部署生效
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      additional-paths: src/main/java
+      exclude:
+      - static/**
+      - templates/**
+
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/punch
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    #   数据源其他配置
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    #   配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+    filters: stat,wall
+    maxPoolPreparedStatementPerConnectionSize: 20
+    useGlobalDataSourceStat: true
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+  mail:
+    host: smtp.office365.com
+    username: lzhooslq@outlook.com
+    password: lzh$$789
+    port: 587
+spring.mail.properties.mail.smtp.auth: true
+spring.mail.properties.mail.smtp.starttls.enable: true
+spring.mail.properties.mail.smtp.starttls.required: true
+logging:
+  level:
+    root: info
+  path: ./logs
+server:
+  port: 9090

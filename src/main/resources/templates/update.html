@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="" >
+        <title>Signin Template for Bootstrap</title>
+        <script th:src="@{/webjars/jquery/3.3.0/jquery.min.js}"></script>
+        <!-- Bootstrap core CSS -->
+        <link href="../static/asserts/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/4.4.1/css/bootstrap.min.css}" rel="stylesheet">
+    </head>
+</head>
+<body>
+<div class="container" style="margin-top: 200px;">
+    <a  class="btn btn-success" th:href="@{/loginOut}">注销</a>
+<form th:action="@{/update}" th:method="post" >
+    <div class="form-group row">
+        <label for="username" class="col-sm-2 col-form-label">学管系统账号</label>
+        <div class="col-sm-10">
+            <input type="text" name="username" class="form-control" id="username" th:value="${session.info.username}">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputPassword3" class="col-sm-2 col-form-label">学管系统密码</label>
+        <div class="col-sm-10">
+            <input type="password" name="password" class="form-control" id="inputPassword3" th:value="${session.info.password}">
+        </div>
+    </div>
+    <fieldset class="form-group">
+        <div class="row">
+            <legend class="col-form-label col-sm-2 pt-0">是否在校</legend>
+            <div class="col-sm-10">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="school" id="gridRadios1" value="否" th:checked="${session.info.school}=='否'?true:false" checked>
+                    <label class="form-check-label" for="gridRadios1">
+                        否
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="school" id="gridRadios2" value="是" th:checked="${session.info.school}=='是'?true:false">
+                    <label class="form-check-label" for="gridRadios2">
+                        是
+                    </label>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+    <div class="form-group row">
+        <label for="location" class="col-sm-2 col-form-label">所在地(XX省XX市XX区)</label>
+        <div class="col-sm-10">
+            <input type="text" name="location" class="form-control" id="location" th:value="${session.info.location}">
+        </div>
+    </div>
+    <fieldset class="form-group">
+        <div class="row">
+            <legend class="col-form-label col-sm-2 pt-0">医学观察情况</legend>
+            <div class="col-sm-10">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="ob" id="ob1" value="无下列情况" >
+                    <label class="form-check-label" for="ob1">
+                        无下列情况
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="ob" id="ob2" value="居家观察">
+                    <label class="form-check-label" for="ob2">
+                        居家观察
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="ob" id="ob3" value="集中观察">
+                    <label class="form-check-label" for="ob3">
+                        集中观察
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="ob" id="ob4" value="解除医学观察">
+                    <label class="form-check-label" for="ob4">
+                        解除医学观察
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="ob" id="ob5" value="异常临床表现">
+                    <label class="form-check-label" for="ob5">
+                        异常临床表现
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="ob" id="ob6" value="被列为疑似病例">
+                    <label class="form-check-label" for="ob6">
+                        被列为疑似病例
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="ob" id="ob7" value="解除疑似病例">
+                    <label class="form-check-label" for="ob7">
+                        解除疑似病例
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="ob" id="ob8" value="是确诊病例">
+                    <label class="form-check-label" for="ob5">
+                        是确诊病例
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="ob" id="ob9" value="确诊但已治愈">
+                    <label class="form-check-label" for="ob9">
+                        确诊但已治愈
+                    </label>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+
+    <fieldset class="form-group">
+        <div class="row">
+            <legend class="col-form-label col-sm-2 pt-0">健康情况</legend>
+            <div class="col-sm-10">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="health" id="h1" value="ctl00$cph_right$e_health$0">
+                    <label class="form-check-label" for="h1">
+                        无不适
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="health" id="h2" value="ctl00$cph_right$e_health$1">
+                    <label class="form-check-label" for="h2">
+                        发烧
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="health" id="h3" value="ctl00$cph_right$e_health$2">
+                    <label class="form-check-label" for="h3">
+                        咳嗽
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="health" id="h4" value="ctl00$cph_right$e_health$3">
+                    <label class="form-check-label" for="h4">
+                        气促
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="health" id="h5" value="ctl00$cph_right$e_health$4">
+                    <label class="form-check-label" for="h5">
+                        乏力/肌肉酸痛
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="health" id="h6" value="ctl00$cph_right$e_health$5">
+                    <label class="form-check-label" for="h6">
+                        其它症状
+                    </label>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+
+    <div class="form-group row">
+        <label for="temp" class="col-sm-2 col-form-label">体温</label>
+        <div class="col-sm-10">
+            <input type="text" name="temp" class="form-control" id="temp" th:value="${session.info.temp}">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="de" class="col-sm-2 col-form-label">特殊描述</label>
+        <div class="col-sm-10">
+            <input type="text" name="de" class="form-control" id="de" th:value="${session.info.de}">
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary">保存</button>
+        </div>
+    </div>
+
+    <div style="display: none" th:text="${session.info.ob}" id="text1"></div>
+    <div style="display: none" th:text="${session.info.health}" id="text2"></div>
+    <script>
+        var ob = $("#text1").text()
+        var health = $("#text2").text()
+        var inputs = $(".form-check-input")
+
+
+        for(var i = 0;i<inputs.length;i++){
+            if($(inputs[i]).val()==ob){
+                $(inputs[i]).attr("checked","true")
+            }
+            if($(inputs[i]).val()==health){
+                $(inputs[i]).attr("checked","true")
+            }
+        }
+    </script>
+</form>
+
+</div>
+</body>
+</html>

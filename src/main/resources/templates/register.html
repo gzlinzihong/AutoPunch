@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="">
+		<meta name="author" content="" >
+		<title>Signin Template for Bootstrap</title>
+		<!-- Bootstrap core CSS -->
+		<link href="../static/asserts/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/4.4.1/css/bootstrap.min.css}" rel="stylesheet">
+		<!-- Custom styles for this template -->
+		<link href="../static/asserts/css/signin.css" th:href = "@{/asserts/css/signin.css}" rel="stylesheet">
+		<script th:src="@{/webjars/jquery/3.3.0/jquery.min.js}"></script>
+	</head>
+	<body class="text-center">
+		<form class="form-signin" th:action="@{/register}" method="post">
+			<img class="mb-4" th:src = "@{/asserts/img/bootstrap-solid.svg}" src="../static/asserts/img/bootstrap-solid.svg" alt="" width="72" height="72">
+			<p style="color:red;" th:if="${not #strings.isEmpty(msg)}" th:text="${msg}"></p>
+			<label class="sr-only" th:text = "#{login.username}">Username</label>
+			<input type="text" name="username" class="form-control" id="username" th:placeholder = "#{login.username}" placeholder="Username" required="" autofocus="">
+			<label class="sr-only" th:text = "#{login.password}">Password</label>
+			<input type="password" name="password" class="form-control" th:placeholder = "#{login.password}" placeholder="Password" required="">
+			<label class="sr-only" th:text = "#{login.email}">email(邮箱不正确将无法发送邮件)</label>
+			<input type="email" name="email" class="form-control" th:placeholder = "#{login.email}" placeholder="Email" required="">
+			<p class="mt-5 mb-3" style="color: red"  >email(邮箱不正确将无法发送邮件)</p>
+			<button class="btn btn-lg btn-primary btn-block" type="submit" th:text = "#{login.register}" id="sub">Sign in</button>
+			<p class="mt-5 mb-3" style="color: red;display: none" id="reg" >用户名已被注册</p>
+			<p class="mt-5 mb-3" style="color: red;display: none" id="reg1" th:text="${msg}"></p>
+			<p class="mt-5 mb-3 text-muted">host:ilanky</p>
+			<a class="btn btn-sm" th:href="@{/(l='zh_CN')}">中文</a>
+			<a class="btn btn-sm" th:href="@{/(l='en_US')}">English</a>
+		</form>
+
+	<script>
+		$("#username").blur(function () {
+			$.ajax({
+				type:'GET',
+				url:"/isRegistered",
+				data:"username="+$("#username").val(),
+				success:function (res) {
+					if(res['status']=="403"){
+						$("reg").html(res['msg'])
+						$("#reg").show()
+						$("#sub").attr("disabled",true)
+					}
+					else {
+						$("#reg").hide()
+						$("#sub").attr("disabled",false)
+					}
+				}
+			})
+		})
+	</script>
+
+	</body>
+
+</html>

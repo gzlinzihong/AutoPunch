@@ -40,7 +40,7 @@ spring:
   mail:
     host: smtp.office365.com
     username: ## 邮箱账号
-    password: ## 密码
+    password: ## 邮箱密码
     port: 587
 spring.mail.properties.mail.smtp.auth: true
 spring.mail.properties.mail.smtp.starttls.enable: true

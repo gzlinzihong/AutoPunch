@@ -39,8 +39,8 @@ spring:
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
   mail:
     host: smtp.office365.com
-    username: lzhooslq@outlook.com
-    password: lzh$$789
+    username: ## 邮箱账号
+    password: ## 邮箱密码
     port: 587
 spring.mail.properties.mail.smtp.auth: true
 spring.mail.properties.mail.smtp.starttls.enable: true

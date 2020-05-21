@@ -202,7 +202,7 @@ public class AutoPunch {
         data.put("ctl00$cph_right$e_describe",punch.getDe());
         data.put("ctl00$cph_right$e_submit",SUBMIT);
         try {
-            Connection.Response response = connect.ignoreContentType(true).timeout(60000).followRedirects(true)
+            Connection.Response response = connect.ignoreContentType(true).timeout(90000).followRedirects(true)
                     .data(data).cookies(cookies).execute();
             if(response.statusCode()!=200){
                 throw new AutoPunchFailedException("自动打卡异常,状态码为"+response.statusCode());

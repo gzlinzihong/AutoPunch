@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="">
+		<meta name="author" content="" >
+		<title>自动打卡</title>
+		<!-- Bootstrap core CSS -->
+		<link href="../static/asserts/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/4.4.1/css/bootstrap.min.css}" rel="stylesheet">
+		<!-- Custom styles for this template -->
+		<link href="../static/asserts/css/signin.css" th:href = "@{/asserts/css/signin.css}" rel="stylesheet">
+		<script th:src="@{/webjars/jquery/3.3.0/jquery.min.js}"></script>
+	</head>
+	<body class="text-center">
+		<form class="form-signin" th:action="@{/del}" method="post">
+			<h3 style="color: red;margin-bottom: 30px;">一旦删除则不可恢复</h3>
+			<h3 style="color: peru;margin-bottom: 30px;">以下输入注册时账号(不是学管账号)</h3>
+			<label class="sr-only" th:text = "#{login.username}">Username</label>
+			<input type="text" name="username" class="form-control" id="username" th:placeholder = "#{login.username}" placeholder="Username" required="" autofocus="">
+			<label class="sr-only" th:text = "#{login.password}">Password</label>
+			<input type="password" name="password" class="form-control" th:placeholder = "#{login.password}" placeholder="Password" required="">
+			<button class="btn btn-lg btn-primary btn-block" type="submit"  id="sub">清除</button>
+			<p class="mt-5 mb-3 text-muted">host:ilanky</p>
+			<h3 class="mt-5 mb-3 " th:if="!${#strings.isEmpty(msg)}" th:text="${msg}" style="color: #6f42c1;"></h3>
+		</form>
+
+
+	</body>
+
+</html>

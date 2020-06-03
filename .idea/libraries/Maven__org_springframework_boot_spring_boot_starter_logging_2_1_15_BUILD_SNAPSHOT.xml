@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: org.springframework.boot:spring-boot-starter-logging:2.1.15.BUILD-SNAPSHOT">
     <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-logging/2.1.15.BUILD-SNAPSHOT/spring-boot-starter-logging-2.1.15.BUILD-20200515.162714-4.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-logging/2.1.15.BUILD-SNAPSHOT/spring-boot-starter-logging-2.1.15.BUILD-20200601.230315-8.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-logging/2.1.15.BUILD-SNAPSHOT/spring-boot-starter-logging-2.1.15.BUILD-20200515.162714-4-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-logging/2.1.15.BUILD-SNAPSHOT/spring-boot-starter-logging-2.1.15.BUILD-20200601.230315-8-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-logging/2.1.15.BUILD-SNAPSHOT/spring-boot-starter-logging-2.1.15.BUILD-20200515.162714-4-sources.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-logging/2.1.15.BUILD-SNAPSHOT/spring-boot-starter-logging-2.1.15.BUILD-20200601.230315-8-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

@@ -1,6 +1,6 @@
 edu/gdpu/controller/InfoController.class
-edu/gdpu/domain/AutoPunchFailedException.class
 edu/gdpu/service/MessageService.class
+edu/gdpu/exception/AccountDuplicationException.class
 edu/gdpu/domain/Punch.class
 edu/gdpu/PunchApplication.class
 edu/gdpu/exception/PasswordIncorrectException.class
@@ -13,6 +13,7 @@ edu/gdpu/domain/Respon.class
 edu/gdpu/config/DruidConfig.class
 edu/gdpu/entity/Info.class
 edu/gdpu/domain/AutoPunch.class
+edu/gdpu/exception/LoginException.class
 edu/gdpu/service/impl/MessageServiceImpl.class
 edu/gdpu/entity/User.class
 edu/gdpu/controller/LoginController.class
@@ -22,5 +23,6 @@ edu/gdpu/service/InfoService.class
 edu/gdpu/service/UserService.class
 edu/gdpu/component/TimerTask.class
 edu/gdpu/component/MyLocaleResolver.class
+edu/gdpu/exception/AutoPunchFailedException.class
 edu/gdpu/mapper/MessageMapper.class
 edu/gdpu/service/impl/InfoServiceImpl.class

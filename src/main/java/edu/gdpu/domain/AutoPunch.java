@@ -1,5 +1,6 @@
 package edu.gdpu.domain;
 
+import edu.gdpu.exception.*;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -40,7 +41,7 @@ public class AutoPunch {
      * @param password
      * @return
      */
-    public Map<String,String> firstVisit(String username,String password) throws IOException {
+    public Map<String,String> firstVisit(String username,String password) throws  IOException {
         //获取连接
         Connection con = Jsoup.connect(LOGIN_URL);
 
@@ -87,7 +88,7 @@ public class AutoPunch {
      * 登陆
      * @param map
      */
-    public void login(Map<String,String> map) throws IOException {
+    public void login(Map<String,String> map) throws LoginException,  IOException {
         Connection con = Jsoup.connect(LOGIN_URL);
         con.header(USER_AGENT, USER_AGENT_VALUE);
         con.method(Connection.Method.POST);
@@ -105,7 +106,9 @@ public class AutoPunch {
 
             //更新Cookie
             cookies.putAll(login.cookies());
-        } catch (IOException e) {
+        } catch (NullPointerException e){
+            throw new LoginException("登陆时出现异常");
+        }catch(IOException e) {
             LOGGER.warn("登陆时出异常,账户为"+this.punch.getUsername());
             LOGGER.warn(e.getLocalizedMessage());
             throw new IOException(e);
@@ -215,7 +218,7 @@ public class AutoPunch {
     }
 
 
-    public void autoPunch() throws AutoPunchFailedException, IOException {
+    public void autoPunch() throws Exception {
         Map<String, String> stringStringMap = firstVisit(punch.getUsername(),punch.getPassword());
         login(stringStringMap);
         Map<String, String> map = submitStart();
@@ -223,7 +226,7 @@ public class AutoPunch {
         submit(data);
     }
 
-    public void start() throws AutoPunchFailedException, IOException {
+    public void start() throws Exception {
         autoPunch();
     }
 

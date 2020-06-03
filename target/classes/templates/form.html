@@ -9,23 +9,30 @@
         <title>Signin Template for Bootstrap</title>
         <!-- Bootstrap core CSS -->
         <link href="../static/asserts/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/4.4.1/css/bootstrap.min.css}" rel="stylesheet">
-<!--        <script th:src="@{/webjars/jquery/3.3.0/jquery.min.js}"></script>-->
+        <script th:src="@{/webjars/jquery/3.3.0/jquery.min.js}"></script>
     </head>
 </head>
 <body>
 <div class="container" style="margin-top: 200px;">
+    <h3 style="color: red;" th:if="!${#strings.isEmpty(error)}" th:text="${error}"></h3>
     <a  class="btn btn-success" th:href="@{/loginOut}">注销</a>
 <form th:action="@{/submit}" th:method="post" >
     <div class="form-group row">
         <label for="username" class="col-sm-2 col-form-label">学官系统账号</label>
         <div class="col-sm-10">
-            <input type="text" name="username" class="form-control" id="username">
+            <input type="text" name="username" class="form-control" id="username" required>
         </div>
     </div>
     <div class="form-group row">
-        <label for="inputPassword3" class="col-sm-2 col-form-label">学官系统密码</label>
-        <div class="col-sm-10">
-            <input type="password" name="password" class="form-control" id="inputPassword3">
+        <label for="inputPassword3" class="col-sm-2 col-form-label">学管系统密码</label>
+        <div class="col-sm-10 input-group">
+            <input type="password" name="password" class="form-control" id="inputPassword3" required>
+            <div style="font-size: 30px; margin-left: 10px;margin-top: 7px;"  class="input-group-append">
+                <svg class="bi bi-eye-fill " width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" id="eye"  xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+                    <path fill-rule="evenodd" d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
+                </svg>
+            </div>
         </div>
     </div>
     <fieldset class="form-group">
@@ -33,13 +40,13 @@
             <legend class="col-form-label col-sm-2 pt-0">是否在校</legend>
             <div class="col-sm-10">
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="school" id="gridRadios1" value="否" checked>
+                    <input class="form-check-input" type="radio" name="school" id="gridRadios1" value="否" checked >
                     <label class="form-check-label" for="gridRadios1">
                         否
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="school" id="gridRadios2" value="是">
+                    <input class="form-check-input" type="radio" name="school" id="gridRadios2" value="是" >
                     <label class="form-check-label" for="gridRadios2">
                         是
                     </label>
@@ -50,7 +57,7 @@
     <div class="form-group row">
         <label for="location" class="col-sm-2 col-form-label">所在地(XX省XX市XX区)</label>
         <div class="col-sm-10">
-            <input type="text" name="location" class="form-control" id="location">
+            <input type="text" name="location" class="form-control" id="location" required>
         </div>
     </div>
     <fieldset class="form-group">
@@ -178,6 +185,17 @@
         </div>
     </div>
 </form>
+
+    <script>
+        $("#eye").mouseover(function () {
+            $("#inputPassword3").attr("type","text")
+
+        })
+
+        $("#eye").mouseout(function () {
+            $("#inputPassword3").attr("type","password")
+        })
+    </script>
 
 </div>
 </body>

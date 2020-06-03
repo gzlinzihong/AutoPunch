@@ -1,6 +1,8 @@
 package edu.gdpu.service.impl;
 
 import edu.gdpu.entity.Info;
+import edu.gdpu.entity.User;
+import edu.gdpu.exception.AccountDuplicationException;
 import edu.gdpu.mapper.InfoMapper;
 import edu.gdpu.service.InfoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +19,12 @@ public class InfoServiceImpl implements InfoService {
     private InfoMapper infoMapper;
 
     @Override
-    public void submit(Info info,int userId){
-        infoMapper.save(info,userId);
+    public void submit(Info info,int userId) throws AccountDuplicationException {
+        if(infoMapper.findByUsername(info)!=null){
+            throw new AccountDuplicationException("该学管账号已存在自动打卡名单内");
+        }else {
+            infoMapper.save(info,userId);
+        }
     }
 
     @Override
@@ -29,5 +35,10 @@ public class InfoServiceImpl implements InfoService {
     @Override
     public void update(Info info, int userId) {
         infoMapper.update(info,userId);
+    }
+
+    @Override
+    public void delete(User user) {
+        infoMapper.deleteByUserId(user.getId());
     }
 }

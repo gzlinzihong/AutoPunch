@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: org.springframework.boot:spring-boot-devtools:2.1.15.BUILD-SNAPSHOT">
     <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-devtools/2.1.15.BUILD-SNAPSHOT/spring-boot-devtools-2.1.15.BUILD-20200515.162712-4.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-devtools/2.1.15.BUILD-SNAPSHOT/spring-boot-devtools-2.1.15.BUILD-20200601.230313-8.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-devtools/2.1.15.BUILD-SNAPSHOT/spring-boot-devtools-2.1.15.BUILD-20200515.162712-4-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-devtools/2.1.15.BUILD-SNAPSHOT/spring-boot-devtools-2.1.15.BUILD-20200601.230313-8-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-devtools/2.1.15.BUILD-SNAPSHOT/spring-boot-devtools-2.1.15.BUILD-20200515.162712-4-sources.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-devtools/2.1.15.BUILD-SNAPSHOT/spring-boot-devtools-2.1.15.BUILD-20200601.230313-8-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

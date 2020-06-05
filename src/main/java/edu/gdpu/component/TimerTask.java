@@ -68,10 +68,11 @@ public class TimerTask {
                     if(fails.contains(punch.getUsername())){
                         infoMapper.delete(punch);
                         sendEmail(punch,"自动打卡失败....由于连续两次因为账号密码错误导致自动打卡失败,系统已将你的信息删除。若想使用自动打卡。请登陆你注册的账号重新输入信息");
+                        fails.remove(punch);
                     }else {
                         fails.add(punch.getUsername());
+                        sendEmail(punch,"自动打卡失败..请手动打卡...原因:登陆时账号密码不正确。请确认账号密码是否正确，若仍然正确可回复此邮箱告知。若下次打卡仍然失败，则会将你移出自动打卡名单里");
                     }
-                    sendEmail(punch,"自动打卡失败..请手动打卡...原因:登陆时账号密码不正确。请确认账号密码是否正确，若仍然正确可回复此邮箱告知。若下次打卡仍然失败，则会将你移出自动打卡名单里");
                     failCount++;
                 }else {
                     logger.warn(getExceptionDetail(e));
@@ -79,7 +80,7 @@ public class TimerTask {
                 }
             }
             try {
-                Thread.sleep(10000);
+                Thread.sleep(5000);
             } catch (InterruptedException e) {
                 logger.warn(e.getLocalizedMessage());
             }
@@ -107,7 +108,7 @@ public class TimerTask {
                 failCount++;
             }
             try {
-                Thread.sleep(10000);
+                Thread.sleep(5000);
             } catch (InterruptedException e) {
                 logger.warn(e.getLocalizedMessage());
             }
